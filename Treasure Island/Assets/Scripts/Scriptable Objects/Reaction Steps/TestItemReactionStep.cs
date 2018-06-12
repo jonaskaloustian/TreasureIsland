@@ -10,10 +10,10 @@ public class TestItemReactionStep : ReactionStep
     {
         if (node.grid.inventory.CheckForItem(item))
         {
-            node.animator.SetTrigger("itemConditionMet");
+            node.animator.SetTrigger(DialogParameters.itemConditionMetString);
         } else
         {
-            node.animator.SetTrigger("itemConditionNotMet");
+            node.animator.SetTrigger(DialogParameters.itemConditionNotMetString);
         }
         
     }

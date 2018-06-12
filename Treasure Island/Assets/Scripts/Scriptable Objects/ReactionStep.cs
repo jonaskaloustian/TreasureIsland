@@ -18,6 +18,7 @@ public abstract class ReactionStep : StateMachineBehaviour
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger(DialogParameters.nextString);
+        node.grid.actionPanel.DisplayAnswers(false);
     }
 
     protected abstract void React();

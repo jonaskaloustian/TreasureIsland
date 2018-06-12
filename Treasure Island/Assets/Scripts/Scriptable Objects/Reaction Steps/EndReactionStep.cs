@@ -1,16 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿public class EndReactionStep : TextReactionStep {
 
-public class EndReactionStep : MonoBehaviour {
+    protected override void React()
+    {
+        node.grid.LaunchEnding(text);
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

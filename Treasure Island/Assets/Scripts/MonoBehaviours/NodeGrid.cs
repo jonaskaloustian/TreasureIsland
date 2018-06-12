@@ -1,28 +1,45 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NodeGrid : MonoBehaviour {
 
-    private List<Node> nodes = new List<Node>();
+    [HideInInspector]public List<Node> nodes = new List<Node>();
+
+    [Range(0,24)]
     public int startingNodeValue;
-    private Node currentNode;
+
+    [HideInInspector]public Node currentNode;
     public GlobalValues globalValues;
     public BackgroundImage backgroundImage;
     public ActionPanel actionPanel;
     public Inventory inventory;
     public RectTransform movingIcon;
 
-    private void Awake()
+    private GameControl gameControl;
+
+    private bool ending = false;
+
+    private void Start()
     {
         InitializeNodes();
+        gameControl = FindObjectOfType<GameControl>();
+        gameControl.Load(this);
+        MoveToNode(startingNodeValue);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            currentNode.MoveToNextStep();
+            if (ending)
+            {
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
+                currentNode.MoveToNextStep();
+            }
         }
     }
 
@@ -33,15 +50,7 @@ public class NodeGrid : MonoBehaviour {
             if (transform.GetChild(i).GetComponent<Node>() != null)
             {
                 nodes.Add(transform.GetChild(i).GetComponent<Node>());
-                if (i == startingNodeValue)
-                {
-                    MoveToNode(startingNodeValue);
-                }
             }
-        }
-        if (currentNode == null)
-        {
-            Debug.Log("Attention startingNodeValue n'a pas été spécifié ou n'est pas compris entre 0 et 24. Le jeu ne peut se lancer");
         }
     }
 
@@ -59,6 +68,7 @@ public class NodeGrid : MonoBehaviour {
 
         //Maintenant on en profite pour mettre à jour la node actuelle, on l'envoie à la console pour Debug et on la lance.
         currentNode = nodes[nodeNumber];
+        FindObjectOfType<GameControl>().Save(this);
         Debug.Log("Node actuelle : " + currentNode.name);
         currentNode.LaunchNode();
     }
@@ -66,6 +76,12 @@ public class NodeGrid : MonoBehaviour {
     public void Answer(int answerNumber)
     {
         currentNode.animator.SetTrigger("answer"+answerNumber.ToString());
+    }
+
+    public void LaunchEnding(string endText)
+    {
+        actionPanel.DisplayDescription(endText);
+        ending = true;
     }
 
  }

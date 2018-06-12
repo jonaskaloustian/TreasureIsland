@@ -6,8 +6,8 @@ public class MoveReactionStep : ReactionStep
 {
     public int nodeValue;
 
-
     //En sortant, on indique à l'animateur qu'il est désormais inactif
+    //On autosave les données.
     //On demande au panneau d'action d'arrêter d'afficher le texte
     //On bascule vers la node suivante
     protected override void React()

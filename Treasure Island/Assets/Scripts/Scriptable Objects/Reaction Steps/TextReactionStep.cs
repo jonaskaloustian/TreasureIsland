@@ -10,5 +10,4 @@ public class TextReactionStep : ReactionStep {
     {
         node.grid.actionPanel.DisplayDescription(text);
     }
-
 }

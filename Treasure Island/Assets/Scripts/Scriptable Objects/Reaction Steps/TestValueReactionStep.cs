@@ -22,17 +22,37 @@ public class TestValueReactionStep : ReactionStep
         {
             case Condition.superiorThan:
                 {
-                    node.grid.globalValues.CheckIfValueStrictlySuperior(resource, value);
+                    if (node.grid.globalValues.CheckIfValueStrictlySuperior(resource, value))
+                    {
+                        node.animator.SetTrigger(DialogParameters.valueConditionMetString);
+                    } else
+                    {
+                        node.animator.SetTrigger(DialogParameters.valueConditionNotMetString);
+                    }                    
                     break;
                 }
             case Condition.inferiorThan:
                 {
-                    node.grid.globalValues.CheckIfValueStrictlyInferior(resource, value);
+                    if (node.grid.globalValues.CheckIfValueStrictlyInferior(resource, value))
+                    {
+                        node.animator.SetTrigger(DialogParameters.valueConditionMetString);
+                    }
+                    else
+                    {
+                        node.animator.SetTrigger(DialogParameters.valueConditionNotMetString);
+                    }
                     break;
                 }
             case Condition.equals:
                 {
-                    node.grid.globalValues.CheckIfValueEquals(resource, value);
+                    if (node.grid.globalValues.CheckIfValueEquals(resource, value))
+                    {
+                        node.animator.SetTrigger(DialogParameters.valueConditionMetString);
+                    }
+                    else
+                    {
+                        node.animator.SetTrigger(DialogParameters.valueConditionNotMetString);
+                    }
                     break;
                 }
             default:

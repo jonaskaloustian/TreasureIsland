@@ -20,12 +20,12 @@ public class ActionPanel : MonoBehaviour {
             answerButtons[i] = answerPanel.transform.GetChild(i).gameObject;
         }
 
+        DisplayNone();
+
     }
 
     public void DisplayAnswers (string[] answers)
     {
-        descriptionPanel.SetActive(false);
-
         for (int i = 0; i < answers.Length; i++)
         {
             if (!System.String.IsNullOrEmpty(answers[i]))
@@ -43,10 +43,16 @@ public class ActionPanel : MonoBehaviour {
         answerPanel.SetActive(true);
     }
 
+    public void DisplayAnswers (bool display)
+    {
+        if (!display)
+        {
+            answerPanel.SetActive(false);
+        }
+    }
+
     public void DisplayDescription (string text)
     {
-        answerPanel.SetActive(false);
-
         descriptionPanel.GetComponent<Text>().text = text;
 
         descriptionPanel.SetActive(true);

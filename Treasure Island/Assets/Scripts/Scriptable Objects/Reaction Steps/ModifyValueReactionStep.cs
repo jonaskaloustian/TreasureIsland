@@ -39,5 +39,6 @@ public class ModifyValueReactionStep : ReactionStep {
             default:
                 break;
         }
+        node.grid.globalValues.TestCriticalValues();
     }
 }

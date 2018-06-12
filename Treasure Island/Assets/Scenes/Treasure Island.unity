@@ -1417,7 +1417,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 640, y: 30}
+  m_SizeDelta: {x: 640, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &424200044
 MonoBehaviour:
@@ -1741,7 +1741,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 640, y: 30}
+  m_SizeDelta: {x: 640, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &482577835
 MonoBehaviour:
@@ -2199,7 +2199,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43bfdb6ba9ecded44a8229d0454ebfe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nodes: []
   startingNodeValue: 0
+  currentNode: {fileID: 0}
   globalValues: {fileID: 2045006504}
   backgroundImage: {fileID: 750196309}
   actionPanel: {fileID: 864460498}
@@ -2354,7 +2356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda6d91fbac11fe49a987f57c7e6ff61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayedImage: {fileID: 0}
 --- !u!95 &750196310
 Animator:
   serializedVersion: 3
@@ -2788,6 +2789,7 @@ GameObject:
   - component: {fileID: 864460497}
   - component: {fileID: 864460496}
   - component: {fileID: 864460498}
+  - component: {fileID: 864460499}
   m_Layer: 5
   m_Name: ActionPanel
   m_TagString: Untagged
@@ -2859,6 +2861,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 721c3afaa2679954cb057bc8518938d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &864460499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864460494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1297475563, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 32
+    m_Right: 0
+    m_Top: 16
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 16
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
 --- !u!1 &872213991
 GameObject:
   m_ObjectHideFlags: 0
@@ -2868,7 +2892,6 @@ GameObject:
   m_Component:
   - component: {fileID: 872213992}
   - component: {fileID: 872213995}
-  - component: {fileID: 872213994}
   - component: {fileID: 872213993}
   m_Layer: 5
   m_Name: Action Options
@@ -2894,10 +2917,10 @@ RectTransform:
   m_Father: {fileID: 864460495}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 704, y: 194}
+  m_SizeDelta: {x: 704, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &872213993
 MonoBehaviour:
@@ -2911,43 +2934,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 32
+    m_Left: 0
     m_Right: 0
-    m_Top: 32
-    m_Bottom: 32
+    m_Top: 0
+    m_Bottom: 0
   m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
---- !u!114 &872213994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 872213991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &872213995
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3257,7 +3253,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 640, y: 30}
+  m_SizeDelta: {x: 640, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1075205884
 MonoBehaviour:
@@ -4449,10 +4445,10 @@ RectTransform:
   m_Father: {fileID: 864460495}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: 0}
-  m_SizeDelta: {x: 704, y: 194}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 704, y: 40}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1892188449
 MonoBehaviour:
@@ -4629,7 +4625,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 640, y: 30}
+  m_SizeDelta: {x: 640, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1922876940
 MonoBehaviour:
@@ -5169,6 +5165,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultValues: 2d0000002300000019000000
+  criticalValuesBools: 010000
+  criticalValuesEndTexts:
+  - "Je vais tester le clipping pour voir ce que cela donne lorsque je passe le texte
+    \xE0 la page suivante c'est une r\xE9ussite.\n"
+  - 
+  - 
 --- !u!1 &2064387176
 GameObject:
   m_ObjectHideFlags: 0

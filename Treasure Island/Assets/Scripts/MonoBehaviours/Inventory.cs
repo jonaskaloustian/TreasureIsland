@@ -22,6 +22,7 @@ public class Inventory : MonoBehaviour {
                 return;
             }
         }
+        Debug.Log("Inventory was full. Could not add " + itemToAdd.name + " to Inventory.");
     }
 
     public void RemoveItem(Item itemToRemove)

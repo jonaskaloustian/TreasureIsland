@@ -93,6 +93,7 @@ public class DialogStateCreation : EditorWindow
                             triggers[0] = DialogParameters.answer0String;
                             CreateStatesAndTriggerTransitions(targetControllerSM, originState, triggers);
                             CheckBehaviourListAndCreateBehaviourOnState(originState, typeof(AnswerReactionStep));
+                            CheckBehaviourListAndCreateBehaviourOnState(originState, typeof(TextReactionStep));
                             break;
                         }
                     case StateType.TwoAnswers:
@@ -104,6 +105,7 @@ public class DialogStateCreation : EditorWindow
                             CreateStatesAndTriggerTransitions(targetControllerSM, originState, triggers1);
                             CreateStatesAndTriggerTransitions(targetControllerSM, originState, triggers2);
                             CheckBehaviourListAndCreateBehaviourOnState(originState, typeof(AnswerReactionStep));
+                            CheckBehaviourListAndCreateBehaviourOnState(originState, typeof(TextReactionStep));
                             break;
                         }
                     case StateType.ThreeAnswers:
@@ -118,6 +120,7 @@ public class DialogStateCreation : EditorWindow
                             CreateStatesAndTriggerTransitions(targetControllerSM, originState, triggers2);
                             CreateStatesAndTriggerTransitions(targetControllerSM, originState, triggers3);
                             CheckBehaviourListAndCreateBehaviourOnState(originState, typeof(AnswerReactionStep));
+                            CheckBehaviourListAndCreateBehaviourOnState(originState, typeof(TextReactionStep));
                             break;
                         }
                     case StateType.FourAnswers:
@@ -135,6 +138,7 @@ public class DialogStateCreation : EditorWindow
                             triggers4[0] = DialogParameters.answer3String;
                             CreateStatesAndTriggerTransitions(targetControllerSM, originState, triggers4);
                             CheckBehaviourListAndCreateBehaviourOnState(originState, typeof(AnswerReactionStep));
+                            CheckBehaviourListAndCreateBehaviourOnState(originState, typeof(TextReactionStep));
                             break;
                         }
                     default:
@@ -163,6 +167,7 @@ public class DialogStateCreation : EditorWindow
     }
 
     //Cette fonction vérifie que la Behaviour spécifique à créer lorsqu'on utilise CreateChildrenStateAndTransitions ne soit pas déjà présente à l'origine. Si elle n'est pas présente, elle la crée.
+
     void CheckBehaviourListAndCreateBehaviourOnState(AnimatorState state, System.Type type)
     {
         for (int i = 0; i < state.behaviours.Length; i++)

@@ -7,6 +7,21 @@ public class GlobalValues : MonoBehaviour {
 
     public int[] defaultValues;
     private Text[] resourceTexts;
+    public bool[] criticalValuesBools;
+    public string[] criticalValuesEndTexts;
+
+    private NodeGrid grid;
+
+    public void TestCriticalValues()
+    {
+        for (int i = 0; i < defaultValues.Length; i++)
+        {
+            if (defaultValues[i]<=0 && criticalValuesBools[i])
+            {
+                grid.LaunchEnding(criticalValuesEndTexts[i]);
+            }
+        }
+    }
 
     private void Awake()
     {
@@ -16,11 +31,8 @@ public class GlobalValues : MonoBehaviour {
             resourceTexts[i] = transform.GetChild(i).GetComponent<Text>();
             resourceTexts[i].text = System.Enum.GetName((typeof(Resource)), i) + " : " + defaultValues[i].ToString();
         }
-    }
 
-    private void InitializeValues()
-    {
-
+        grid = FindObjectOfType<NodeGrid>();
     }
 
     public bool CheckIfValueStrictlySuperior (Resource resource ,int value)
